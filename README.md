@@ -19,26 +19,12 @@
 
 ## Quickstart
 
-+ Refer to our [Official Documentation](https://finmind.github.io/quickstart/).
-
-## Example
-
 ```python
-# 取得還原股價
-from FinMind.data import DataLoader
-
-dl = DataLoader()
-adj_price = dl.taiwan_stock_daily_adj("2330", "2018-01-01", "2021-03-03")
-
-# 繪製k線圖
-from FinMind import plotting
-
-plotting.kline(adj_price)
+pip install FinMind
 ```
 
-<p align="center">
-<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/680988a6-7c5b-4925-9f62-b40209bcd89f/kline_demo2.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210404%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210404T044414Z&X-Amz-Expires=86400&X-Amz-Signature=8785982a514dc95d93e3f7abc485a4b111710c803c3d6a64c8574b3964715943&X-Amz-SignedHeaders=host" alt="drawing" width="600"/>
-</p>
++ Refer to our [Official Documentation](https://finmind.github.io/quickstart/).
+
 
 ## 這是什麼?
 
@@ -99,6 +85,37 @@ without having to collect the data by yourself.
     - [Open UP Summit Slide (PPT)](https://www.slideshare.net/ssusera12be6/finmind-project-demo-199815617)
     - [Median Sharing](https://medium.com/@yanweiliu/finmind-%E4%BD%BF%E7%94%A8python%E6%9F%A5%E5%85%A8%E7%90%83%E8%82%A1%E5%83%B9-%E5%82%B5%E5%88%B8-%E5%8E%9F%E6%B2%B9%E5%83%B9%E6%A0%BC-f39d13ad6a68)
     - [HistoryUpdate](https://github.com/linsamtw/FinMind/blob/master/HistoryUpdate.md)
+
+
+## Plotting
+
+#### [kbar_plotting.ipynb](https://colab.research.google.com/drive/1u1cJGFNCLOeBIR0PdeKlsqgKBJSvJg_y?usp=sharing)
+
+```python
+# 取得股價
+from FinMind.data import DataLoader
+
+dl = DataLoader()
+# 下載台股股價資料
+stock_data = dl.taiwan_stock_daily(
+    stock_id='2609', start_date='2018-01-01', end_date='2021-06-26'
+)
+# 下載三大法人資料
+stock_data = dl.feature.add_kline_institutional_investors(
+    stock_data
+) 
+# 下載融資券資料
+stock_data = dl.feature.add_kline_margin_purchase_short_sale(
+    stock_data
+)
+
+# 繪製k線圖
+from FinMind import plotting
+
+plotting.kline(stock_data)
+```
+
+![gif](figure/kbar_plotting.gif)
 
 -------------------------------------------
 
