@@ -22,14 +22,14 @@ build-dist:
 upload-pypi:
 	twine upload -u ${TWINE_USERNAME} -p ${TWINE_PASSWORD} dist/*
 
-req:
-	pipenv lock --requirements > requirements.txt
-
 linux-wheel:
-	pip wheel ./ -w wheelhouse/
+	uv build
 
 format:
 	black -l 80 FinMind tests
+
+format-check:
+	black -l 80 --check FinMind tests
 
 jupyterlab:
 	jupyter lab

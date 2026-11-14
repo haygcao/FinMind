@@ -2,6 +2,7 @@
 政府債券
 G8-俄羅斯、美國、加拿大、英國、法國、德國、義大利及日本
 """
+
 import datetime
 import os
 import re
@@ -194,7 +195,7 @@ class GovernmentBondsCrawler(BaseCrawler):
             tem = td_path[i : i + 6]
             value = get_value(tem)
             if len(value) > 0:
-                data = data.append(value)
+                data = pd.concat([data, value])
 
         if len(data) > 0:
             data.columns = col_name

@@ -19,14 +19,16 @@ class NaiveKd(Strategy):
     kd_upper = 80
     kd_lower = 20
 
-    def create_trade_sign(self, stock_price: pd.DataFrame) -> pd.DataFrame:
+    def create_trade_sign(
+        self, stock_price: pd.DataFrame, **kwargs
+    ) -> pd.DataFrame:
         stock_price = stock_price.sort_values("date")
         kd = StochasticOscillator(
             high=stock_price["max"],
             low=stock_price["min"],
             close=stock_price["close"],
-            n=self.k_days,
-            d_n=self.d_days,
+            window=self.k_days,
+            smooth_window=self.d_days,
         )
         stock_price["K"] = kd.stoch()
         stock_price["D"] = kd.stoch_signal()

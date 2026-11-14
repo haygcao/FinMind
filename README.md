@@ -3,11 +3,12 @@
 </p>
 
 <p align="center">
-  <a href="https://travis-ci.org/FinMind/FinMind"><img src="https://travis-ci.org/FinMind/FinMind.svg?branch=master" alt="Build Status"></a>
-  <a href="https://github.com/linsamtw/FinMind/blob/master/LICENSE"><img src="https://img.shields.io/github/license/FinMind/FinMind" alt="license"></a>
+  <a href="https://github.com/FinMind/FinMind/actions/workflows/python-package.yml"><img src="https://github.com/FinMind/FinMind/actions/workflows/python-package.yml/badge.svg?branch=master" alt="Build Status"></a>
+  <a href="https://github.com/FinMind/FinMind/blob/master/LICENSE"><img src="https://img.shields.io/github/license/FinMind/FinMind" alt="license"></a>
   <a href="https://finmind.github.io/"><img src="https://readthedocs.org/projects/finminddoc/badge/?version=latest" alt="Documentation Status"></a>
   <a href="https://gitter.im/FinMindTW/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge"><img src="https://badges.gitter.im/FinMindTW/community.svg" alt="Gitter"></a>
   <a href="https://badge.fury.io/py/FinMind"><img src="https://badge.fury.io/py/FinMind.svg" alt="PyPI version"></a>
+  <a href="https://pypi.org/project/FinMind/"><img src="https://img.shields.io/pypi/pyversions/FinMind" alt="Python Versions"></a>
   <!--<a href="https://coveralls.io/github/linsamtw/FinMind?branch=master"><img src="https://coveralls.io/repos/github/linsamtw/FinMind/badge.svg?branch=master" alt="Coverage Status"></a>-->
 </p>
 
@@ -17,6 +18,10 @@
 
 <a href="https://finmindtrade.com/analysis/#/Sponsor/sponsor"><img src="https://payment.ecpay.com.tw/Content/themes/WebStyle20170517/images/ecgo.png" alt=""/></a>
 
+* [FinMind 架構獨家解析書籍推薦](https://www.tenlong.com.tw/products/9786267757802?list_name=trs-o)
+<a href="https://www.tenlong.com.tw/products/9786267273739?list_name=b-r7-zh_tw"><img src="https://github.com/FinMind/FinMindBook/blob/master/DataEngineering/FinMindBook.jpg" width="200" height="250" alt=""/></a>
+
+
 ## Quickstart
 
 ```python
@@ -25,13 +30,23 @@ pip install FinMind
 
 + Refer to our [Official Documentation](https://finmind.github.io/quickstart/).
 
+## LLM / AI 整合
+
+想用 ChatGPT、Claude 等 AI 工具查詢 FinMind 的資料集和 API 用法？我們提供 llms.txt，讓 AI 快速理解 FinMind 的所有資料集、API 端點與使用方式。
+
+只要將以下連結貼給你的 AI 助手，即可開始對話：
+
+- [llms.txt](https://finmind.github.io/llms.txt) — 精簡版，資料集索引與 API 概覽
+- [llms-full.txt](https://finmind.github.io/llms-full.txt) — 完整版，包含所有資料集的欄位名稱、SDK 方法、參數範例
+- [Agent Skill 教學](https://finmind.github.io/tutor/AgentSkill/) — 讓 AI Agent（如 Claude Code）直接查詢 FinMind 資料
+
 
 ## 這是什麼?
 
-**FinMind** 是超過 50 種金融開源數據 [50 datasets](https://finmind.github.io/)。
+**FinMind** 提供台灣與國際市場的金融開源數據，完整資料集清單請見[官方文件](https://finmind.github.io/)。
 包含
 
-* 技術面 : 台股股價 daily、即時報價、歷史 tick、即時最佳五檔、PER、PBR、每5秒委託成交統計、加權指數、當日沖銷交易標的及成交量值。
+* 技術面 : 台股股價 daily、即時報價、歷史 tick、PER、PBR、每5秒委託成交統計、加權指數、當日沖銷交易標的及成交量值。
 * 基本面 : 綜合損益表、現金流量表、資產負債表、股利政策表、除權除息結果表、月營收。
 * 籌碼面 : 外資持股、股權分散表、融資融券、三大法人買賣、借券成交明細。
 * 消息面 : 台股相關新聞。
@@ -42,8 +57,9 @@ pip install FinMind
 
 ## What is this?
 
-**FinMind** is open source of more
-than [50 datasets](https://finmind.github.io/), including
+**FinMind** provides open financial datasets for Taiwan and international
+markets. See the [official documentation](https://finmind.github.io/) for the
+current dataset list, including
 
 Taiwan stock trade data daily, Taiwan stock trade data (5 seconds) (2019-05-29 ~
 now, more than 30 million data in total), Financial Statements, Balance Sheet,
@@ -64,13 +80,29 @@ without having to collect the data by yourself.
 
 ## License
 
-- [License Detail](https://github.com/linsamtw/FinMind/blob/master/LICENSE)
+- [License Detail](https://github.com/FinMind/FinMind/blob/master/LICENSE)
 
-- 資料來源:
-  [證交所](https://www.twse.com.tw/zh/), [櫃買中心](https://www.tpex.org.tw/web/)
-  , [公開資訊觀測站](https://mops.twse.com.tw/mops/web/index)
-  , [期交所](https://www.taifex.com.tw/cht/index)。
 - 本專案提供的所有內容均用於教育、非商業用途。資料僅供參考，使用者依本資料交易發生交易損失需自行負責，本專案不對資料內容錯誤、更新延誤或傳輸中斷負任何責任。
+
+## 資訊來源與使用規定 / Data Source & Usage Rules
+
+資訊來源：臺灣證券交易所「TWSE」｜本資訊由芬麥數據股份有限公司處理提供
+
+1. 使用者須遵守臺灣證券交易所『交易資訊使用管理辦法』等交易資訊管理相關規定。
+2. 所有資訊以臺灣證券交易所公告資料為準。
+
+- **台股即時資料**：依臺灣證券交易所規定，使用台股即時資料（`taiwan_stock_tick_snapshot`）須於 **2027-01-31** 前在[會員中心](https://finmindtrade.com/analysis/#/account/user)填寫姓名、電話、地址。2027-01-31 前未填寫仍可使用，API 回應會附 `profile_notice` 提醒；2027-01-31 起未填寫者將無法取得台股即時資料（HTTP 403）。資料用途請見[隱私權政策](https://finmind.github.io/PrivacyPolicy/#realtime-profile)。
+- **券商分點類資料**（台股分點、權證分點、當日卷商分點統計、鉅額交易買賣日報表）：任何方案（包含 Sponsor Pro）皆僅限用戶自行使用，不得以任何形式再傳輸或提供予第三人。
+- 詳見[免責聲明與資料授權](https://finmind.github.io/Disclaimer/)。
+
+Source: Taiwan Stock Exchange (TWSE) | This information is processed and provided by 芬麥數據股份有限公司 (FinMind)
+
+1. Users must comply with the TWSE Regulations Governing the Use of Trading Information and other applicable rules on trading information.
+2. All information is subject to the data announced by the Taiwan Stock Exchange.
+
+- **Taiwan stock real-time data**: under Taiwan Stock Exchange regulations, users of Taiwan stock real-time data (`taiwan_stock_tick_snapshot`) must fill in their name, phone number, and address in the [Member Center](https://finmindtrade.com/analysis/#/account/user) by **2027-01-31**. Before then, users who have not filled it in can still use the data, with a `profile_notice` reminder in API responses; from 2027-01-31 they will no longer be able to get Taiwan stock real-time data (HTTP 403). See the [Privacy Policy](https://finmind.github.io/en/PrivacyPolicy/#realtime-profile).
+- **Broker branch data** (stock and warrant broker branch trading reports, daily branch aggregate statistics, block trading daily report): for your own use only under every plan, including Sponsor Pro; must not be retransmitted or provided to third parties in any form.
+- See [Disclaimer & Data Licensing](https://finmind.github.io/en/Disclaimer/).
 
 ## Project of Contents
 
@@ -82,7 +114,6 @@ without having to collect the data by yourself.
   <!--- [Crawler (爬蟲)](https://github.com/FinMind/FinMind/tree/master#Crawler-爬蟲)-->
 - Example
     - [backtest](/example/backtest.md)
-    - [real_time_data_subscription](example/real_time_data_subscription.md)
     - [customer_dashboard_web_server](example/customer_dashboard_web_server.md)
     - [kbar_plotting.ipynb](https://colab.research.google.com/drive/1u1cJGFNCLOeBIR0PdeKlsqgKBJSvJg_y?usp=sharing)
     - [dashboard.ipynb](https://colab.research.google.com/drive/15lE2rtYuE-qoEUNNSE-cDbZiDnUFL85h?usp=sharing)
@@ -137,6 +168,11 @@ plotting.kline(stock_data)
 Email: FinMind.TW@gmail.com
 
 每週日早上零點至早上七點為維護時間，不提供服務。
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the development setup, test commands,
+and pull request checklist.
 
 ## Note
 

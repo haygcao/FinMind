@@ -1,4 +1,3 @@
-import numpy as np
 import pandas as pd
 
 from FinMind.data import DataLoader
@@ -69,14 +68,16 @@ class ShortSaleMarginPurchaseRatio(Strategy):
         self.InstitutionalInvestorsBuySell = (
             self.InstitutionalInvestorsBuySell.groupby(
                 ["date", "stock_id"], as_index=False
-            ).agg({"buy": np.sum, "sell": np.sum})
+            ).agg({"buy": "sum", "sell": "sum"})
         )
         self.InstitutionalInvestorsBuySell["diff"] = (
             self.InstitutionalInvestorsBuySell["buy"]
             - self.InstitutionalInvestorsBuySell["sell"]
         )
 
-    def create_trade_sign(self, stock_price: pd.DataFrame) -> pd.DataFrame:
+    def create_trade_sign(
+        self, stock_price: pd.DataFrame, **kwargs
+    ) -> pd.DataFrame:
         stock_price = stock_price.sort_values("date")
         self.load_taiwan_stock_margin_purchase_short_sale()
         self.load_institutional_investors_buy_sell()
